@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+    <style> 
+        .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2em;
+        }
+</style>
+</head>
+<body>
+    <h1>Shop</h1>
+    <a href="/products/new">Add New Product</a> <br>
+    <% products.forEach(p => { %>
+        <img src="<%=p.img %>" >
+        <h3><a href="/products/<%=p._id; %>"><%=p.name; %></a></h3>
+        <h3>$<%=p.price; %></h3>
+        <% }) %>
+</body>
+</html>
