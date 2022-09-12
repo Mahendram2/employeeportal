@@ -46,3 +46,25 @@
     .text-dark{
     color: var(--dark);
     }
+    body{
+        display: flex;
+        flex-direction: column;
+    }
+    @media (min-width: 768px){
+    body{
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 50px auto 30px;
+    grid-template-areas: 
+        "hdr content"
+        "ftr ftr";
+    }
+    }
+    footer{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        color: white;
+        background-color: #333;
+        padding: 3em;
+        margin-top: auto;
+    }
