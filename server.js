@@ -1,9 +1,10 @@
 // Dependencies
 const express = require('express');
 const mongoose = require('mongoose');
-const Products = require('./models/products')
+const Announcement = require('./models/announcement')
 require('dotenv').config();
 const methodOverride = require('method-override');
+const announcement = require('./models/announcement');
 
 
 // Initalize
@@ -35,25 +36,25 @@ app.use(methodOverride('_method'))
 
 
 // Seed Route
-app.get('/products/seed',(req,res) => {
+app.get('/announcement/seed',(req,res) => {
     const data = require('./data.json');
-    Products.deleteMany({}, (err, result) => {
-        Products.insertMany(data, (err,result) => {
-            res.redirect('/products')
+    Announcement.deleteMany({}, (err, result) => {
+        Announcement.insertMany(data, (err,result) => {
+            res.redirect('/announcement')
         });
     });
 });
 
 
-// Home - Reload to product page
-app.get('/', (req,res) => res.redirect('/products'));
+// Home - Reload to Announcement page
+app.get('/', (req,res) => res.redirect('/announcement'));
 
 
 // Index
-app.get('/products', (req,res) => {
-    Products.find({}, (error, products) => {
+app.get('/announcement', (req,res) => {
+    Announcement.find({}, (error, announcement) => {
         res.render('index.ejs', {
-            products: products,
+            announcement: announcement,
         })
     })
     
@@ -61,48 +62,52 @@ app.get('/products', (req,res) => {
 
 
 // New
-app.get('/products/new', (req,res) =>{
+app.get('/announcement/new', (req,res) =>{
     res.render('new.ejs')
 })
 
 
 // Delete
-app.delete('/products/:id', (req,res) =>{
-    Products.findByIdAndDelete(req.params.id, (err,deletedProduct) =>{
-        res.redirect('/products');
+app.delete('/announcement/:id', (req,res) =>{
+    Announcement.findByIdAndDelete(req.params.id, (err,deletedAnnouncement) =>{
+        res.redirect('/announcement');
     })
 })
 
 
 // Update
-app.put('/products/:id',(req,res)=>{
-    Products.findByIdAndUpdate(req.params.id, req.body, (err, oldProductVersion) => {
-        res.redirect('/products/' + req.params.id);
+app.put('/announcement/:id',(req,res)=>{
+    Announcement.findByIdAndUpdate(req.params.id, req.body, (err, oldAnnouncementVersion) => {
+        res.redirect('/announcement/' + req.params.id);
+        res.render('edit.ejs', {
+            Announcement: oldAnnouncementVersion
+        });
+
     })
 })
 
 
 // Create
-app.post('/products', (req,res) => {
-    Products.create(req.body, (err, product) => {
+app.post('/announcement', (req,res) => {
+    Announcement.create(req.body, (err, Announcement) => {
         console.log('Error :', err)
-        res.redirect('/products');
+        res.redirect('/announcement');
     })
 });
 
 
 // Edit
-app.get('/products/:id/edit', (req,res)=>{
-    Products.findById(req.params.id, (err, foundProduct) =>{
-        res.render('edit.ejs', {products: foundProduct})
+app.get('/announcement/:id/edit', (req,res)=>{
+    Announcement.findById(req.params.id, (err, announcement) =>{
+        res.render('edit.ejs', {announcement: announcement})
     });
 });
 
 
 // Show
-app.get('/products/:id', (req, res) => {
-    Products.findById(req.params.id, (err, foundProduct) => {
-        res.render('show.ejs', { product: foundProduct })
+app.get('/announcement/:id', (req, res) => {
+    Announcement.findById(req.params.id, (err, Announcement) => {
+        res.render('show.ejs', { Announcement: Announcement })
     });
 });
 

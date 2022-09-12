@@ -15,12 +15,11 @@
 </style>
 </head>
 <body>
-    <h1>Shop</h1>
-    <a href="/products/new">Add New Product</a> <br>
-    <% products.forEach(p => { %>
+    <h1>Announcement Hub</h1>
+    <a href="/announcement/new">Add New Announcement</a> <br>
+    <% announcement.forEach(p => { %>
         <img src="<%=p.img %>" >
-        <h3><a href="/products/<%=p._id; %>"><%=p.name; %></a></h3>
-        <h3>$<%=p.price; %></h3>
-        <% }) %>
+        <h3><a href="/announcement/<%=p._id; %>"><%=p.name; %></a></h3>
+         <% }) %>
 </body>
 </html>

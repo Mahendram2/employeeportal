@@ -4,28 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Product</title>
+    <title>Edit Announcement</title>
 </head>
 <body>
-    <h1>Edit Product Page</h1>
-    <form action="/products" method="POST">
-        <label> Product:
-            <input type="text" name="name" value="<%=products.name%>">
+    <h1>Edit Announcement Page</h1>
+    <form action="/announcement/<%= announcement.id %>?_method=PUT" method="POST">
+        <label> Announcement:
+            <input type="text" name="name" value="<%=announcement.name%>">
         </label><br>
-        <label> Description:
-            <input type="text" name="description" value="<%=products.description%>">
+        <label> Name:
+            <input type="text" name="description" value="<%=announcement.description%>">
         </label><br>
-        <label> Image:
-            <input type="text" name="img" value="<%=products.img%>">
-        </label><br>
-        <label> Price:
-            <input type="number" name="price" value="<%=products.price%>">
-        </label><br>
-        <label> Quantity:
-            <input type="number" name="qty" value="<%=products.qty%>">
-        </label><br>
-        <input type="submit" value="Update Product">
+        
+        <input type="submit" value="Update Announcement">
     </form>
-    <a href="/products"> Cancel</a>
+    <a href="/announcement"> Cancel</a>
 </body>
 </html>

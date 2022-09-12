@@ -4,28 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Product</title>
+    <title>Add New Announcement</title>
 </head>
 <body>
-    <h1>New Book Page</h1>
-    <form action="/products" method="POST">
-        <label> Product:
+    <h1>New Announcement Page</h1>
+    <form action="/announcement" method="POST">
+        <label> Announcement:
             <input type="text" name="name">
         </label><br>
         <label> Description:
             <input type="text" name="description">
         </label><br>
-        <label> Image:
-            <input type="text" name="img">
-        </label><br>
-        <label> Price:
-            <input type="text" name="price">
-        </label><br>
-        <label> Quantity:
-            <input type="number" name="qty">
-        </label><br>
-        <input type="submit" value="Add Product">
+        
+        <input type="submit" value="Post Announcement">
     </form>
-    <a href="/products"> Cancel</a>
+    <a href="/announcement"> Cancel</a>
 </body>
 </html>
