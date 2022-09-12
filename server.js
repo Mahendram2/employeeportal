@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const Announcement = require('./models/announcement')
 require('dotenv').config();
 const methodOverride = require('method-override');
-const announcement = require('./models/announcement');
 
 
 // Initalize

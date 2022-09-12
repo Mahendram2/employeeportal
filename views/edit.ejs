@@ -7,17 +7,28 @@
     <title>Edit Announcement</title>
 </head>
 <body>
+    <%- include('./partials/header.ejs') %>
     <h1>Edit Announcement Page</h1>
-    <form action="/announcement/<%= announcement.id %>?_method=PUT" method="POST">
-        <label> Announcement:
-            <input type="text" name="name" value="<%=announcement.name%>">
-        </label><br>
-        <label> Name:
-            <input type="text" name="description" value="<%=announcement.description%>">
-        </label><br>
+    <fieldset class="Annoucement">
+
+         <form action="/announcement/<%= announcement.id %>?_method=PUT" method="POST">
+            <label> Title:
+                <input type="text" name="title" value="<%= announcement.title %> ">
+            </label><br>
+            <label> Description:
+                <input type="text" value="<%= announcement.description %> ">
+            </label><br>
+        </fieldset>
+    <fieldset class="Posted By">
+
+
+            <label> Your Name:
+                <input type="text" name="name" value="<%=announcement.name%>">
+            </label><input type="submit" value="Update Announcement"><br>
+        </fieldset>
         
-        <input type="submit" value="Update Announcement">
+        
     </form>
-    <a href="/announcement"> Cancel</a>
+    <%- include('./partials/footer.ejs') %>
 </body>
 </html>

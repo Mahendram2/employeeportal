@@ -5,19 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Announcement</title>
+    <style>
+        input {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+    <%- include('./partials/header.ejs') %>
     <h1>New Announcement Page</h1>
-    <form action="/announcement" method="POST">
-        <label> Announcement:
-            <input type="text" name="name">
-        </label><br>
-        <label> Description:
-            <input type="text" name="description">
-        </label><br>
-        
-        <input type="submit" value="Post Announcement">
+    <fieldset class="Annoucement">
+
+        <form action="/announcement" method="POST">
+            <label> Title:
+                <input type="text" name="title">
+            </label><br>
+            <label> Description:
+                <textarea
+                id="description"
+                placeholder="Tell us about your announcement in detail"
+                rows="5" cols="151"
+                ></textarea>
+            </label><br>
+        </fieldset>
+    <fieldset class="Posted By">
+
+        <form action="/announcement" method="POST">
+            <label> Your Name:
+                <input type="text" name="name">
+            </label>
+            <input type="submit" value="Post Announcement">
+        </fieldset>
     </form>
-    <a href="/announcement"> Cancel</a>
+    <%- include('./partials/footer.ejs') %>
 </body>
 </html>

@@ -3,6 +3,7 @@ const Schema = mongoose.Schema
 
 const announceSchema = new Schema({
     name: {type:String, require:true},
+    title: {type:String, require:true},
     description: String
 })
 

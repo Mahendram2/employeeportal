@@ -4,22 +4,94 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book List</title>
-    <style> 
-        .container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 2em;
+    <title>Employee Portal</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/public/css/style.css">
+    <style>
+        :root{
+        --dark: #2b2d42;
+        --light: #adb5bd;
+        --border: #dee2e6;
         }
-</style>
+        t.able th, .table td {
+          padding: .75em;
+          vertical-align: top;
+          text-align: center;
+          border-top: 1px solid var(--border);
+        }
+        
+        table {
+          width: 100%;
+          border-spacing: 0px;
+        } 
+        .table td > a.btn{
+        padding: .3em 1em;
+        font-size: 1.1em;
+        margin: 0 .2em;
+        }
+        .table tr:hover{
+        background-color:#06d6a0 ;
+        }
+        .table th{
+        color: #fff;
+        background-color: #32383e;
+        }
+        @media (min-width: 768px){
+        body{
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: 50px auto 30px;
+        grid-template-areas: 
+            "hdr content"
+            "ftr ftr";
+  }
+}
+
+    </style>
 </head>
 <body>
-    <h1>Announcement Hub</h1>
-    <a href="/announcement/new">Add New Announcement</a> <br>
-    <% announcement.forEach(p => { %>
-        <img src="<%=p.img %>" >
-        <h3><a href="/announcement/<%=p._id; %>"><%=p.name; %></a></h3>
-         <% }) %>
+    <%- include('./partials/header.ejs') %>
+    <div class="container">
+        <div class="">
+
+        </div>
+
+    </div>
+    <h1></h1>
+    <table class="table">
+        <thead class="thread-dark">
+            <tr>
+                <th>Posted By</th>
+                <th>Announcement</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <% announcement.forEach(p => { %>
+            <tr>
+                    <td>
+                        <a href="/announcement/<%= p._id %>">
+                            <%= p.name %>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/announcement/<%= p._id %>">
+                            <%= p.title %>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/announcement/<%= p._id %>/edit">
+                            <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                        </a>
+                        <a href="/announcement/<%=p._id%>?_method=DELETE" method="post">
+                            <span class="text-gradient"><i class="fas fa-trash-alt"></i></span>
+                        </a>
+                    </td>
+                    <% }); %>
+                </tr>
+            </tbody>
+    </table>
+    <%- include('./partials/footer.ejs') %>
 </body>
 </html>

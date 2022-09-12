@@ -1,0 +1,48 @@
+:root{
+    --dark: #2b2d42;
+    --light: #adb5bd;
+    --border: #dee2e6;
+    }
+    t.able th, .table td {
+      padding: .75em;
+      vertical-align: top;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    
+    table {
+      width: 100%;
+      border-spacing: 0px;
+    } 
+    .table td > a.btn{
+    padding: .3em 1em;
+    font-size: 1.1em;
+    margin: 0 .2em;
+    }
+    .table tr:hover{
+    background-color:#06d6a0 ;
+    }
+    .table th{
+    color: #fff;
+    background-color: #32383e;
+    }
+    #header nav{
+    background-color: #06d6a0;
+    padding: 1em 0;
+    width: 100%;
+    }
+    .container{
+    max-width: 1024px;
+    margin: auto;
+    }
+    .nav-brand{
+    font-size: 1.5em;
+    font-weight: bold;
+    }
+    .text-center{
+    text-align: center;
+    }
+    
+    .text-dark{
+    color: var(--dark);
+    }
