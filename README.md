@@ -12,6 +12,7 @@ An app where coworkers can communicate with eachother with annoucement
 - Node.js
 
 ## Screenshots
+![image](https://i.ibb.co/gTDxDGT/Screen-Shot-2022-09-12-at-8-38-48-AM.png)
 
 
 
